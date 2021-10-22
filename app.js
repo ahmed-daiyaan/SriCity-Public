@@ -1,9 +1,9 @@
 var dbConfig = {
-  server: process.env.SERVER,
-  database: process.env.DATABASE,
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-  port: process.env.PORT,
+  server: 'localhost',
+  database: 'TestDB',
+  user: 'SA',
+  password: 'EverymanAKing1.',
+  port: 1433,
   options: {
     trustServerCertificate: true
   }
@@ -29,6 +29,7 @@ io.on("connection", (socket) => {
   // getData(socket);
 
   socket.on("disconnect", () => console.log("Client disconnected"));
+
   global.db = sql.connect(dbConfig, function (err) {
     if (err) console.log(err);
     console.log("Connected to DB");
@@ -37,7 +38,7 @@ io.on("connection", (socket) => {
   if (interval) {
     clearInterval(interval);
   }
-  interval = setInterval(() => getData(socket), 10000);
+  interval = setInterval(() => getData(socket), 1000);
 });
 const getData = async (socket) => {
   try {
@@ -45,15 +46,23 @@ const getData = async (socket) => {
 
     // query to the database and get the records
     request.query(
-      "SELECT * FROM Data WHERE SrNo=(SELECT max(SrNo) FROM Data);",
+      "SELECT TOP 1 * FROM Data WHERE [Aeron universal ID] = 240091603705960 ORDER BY SrNo DESC;",
       function (err, result) {
         if (err) console.log(err);
         console.log(result);
-        socket.emit("dataResults", result["recordset"][0]);
+        socket.emit("data1Results", result["recordset"][0]);
+      }
+    );
+    request.query(
+      "SELECT TOP 1 * FROM Data WHERE [Aeron universal ID] = 240091602581953 ORDER BY SrNo DESC;",
+      function (err, result) {
+        if (err) console.log(err);
+        console.log(result);
+        socket.emit("data2Results", result["recordset"][0]);
       }
     );
   } catch (error) {
     console.error(`Error: ${error.code}`);
   }
 };
-server.listen(process.env.PORT, () => console.log(`Listening on port ${port}`));
+server.listen(3000, () => console.log(`Listening on port 3000`));

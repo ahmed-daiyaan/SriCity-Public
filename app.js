@@ -46,7 +46,7 @@ const getData = async (socket) => {
 
     // query to the database and get the records [Aeron universal ID] = 240091603705960,240091602581953
     request.query(
-      "SELECT TOP 1 * FROM Data WHERE [Aeron universal ID] = 181818181818181 ORDER BY SrNo DESC;",
+      "SELECT TOP 1 * FROM Data WHERE [Aeron universal ID] = 240091603705960 ORDER BY SrNo DESC;",
       function (err, result) {
         if (err) console.log(err);
         console.log(result);
@@ -54,7 +54,7 @@ const getData = async (socket) => {
       }
     );
     request.query(
-      "SELECT TOP 1 * FROM Data WHERE [Aeron universal ID] = 12 ORDER BY SrNo DESC;",
+      "SELECT TOP 1 * FROM Data WHERE [Aeron universal ID] = 240091602581953 ORDER BY SrNo DESC;",
       function (err, result) {
         if (err) console.log(err);
         console.log(result);
@@ -65,4 +65,4 @@ const getData = async (socket) => {
     console.error(`Error: ${error.code}`);
   }
 };
-server.listen(3000, () => console.log(`Listening on port 3000`));
+server.listen(8000, () => console.log('Listening on port 8000'));

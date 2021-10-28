@@ -1,12 +1,18 @@
 var selectedStation = 's1';
+let interval;
 //Listen to data sent from server, calculate & allot to variables for display
 async function initSocketIO() {
+    
     const socket = io();
-    setInterval(function () {
+    if (interval) {
+    clearInterval(interval);
+  }
+  interval = setInterval(() => getStation(), 1000);
+    function getStation () {
         
     selectedStation = document.getElementById("station").value;
 
-    },1000)
+    }
     socket.on("data1Results", data => {
 
         var table = "<table class=\"table\">" +

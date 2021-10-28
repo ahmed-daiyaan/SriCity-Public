@@ -38,15 +38,15 @@ io.on("connection", (socket) => {
   if (interval) {
     clearInterval(interval);
   }
-  interval = setInterval(() => getData(socket), 1000);
+  interval = setInterval(() => getData(socket), 600);
 });
 const getData = async (socket) => {
   try {
     var request = new sql.Request();
 
-    // query to the database and get the records
+    // query to the database and get the records [Aeron universal ID] = 240091603705960,240091602581953
     request.query(
-      "SELECT TOP 1 * FROM Data WHERE [Aeron universal ID] = 240091603705960 ORDER BY SrNo DESC;",
+      "SELECT TOP 1 * FROM Data WHERE [Aeron universal ID] = 181818181818181 ORDER BY SrNo DESC;",
       function (err, result) {
         if (err) console.log(err);
         console.log(result);
@@ -54,7 +54,7 @@ const getData = async (socket) => {
       }
     );
     request.query(
-      "SELECT TOP 1 * FROM Data WHERE [Aeron universal ID] = 240091602581953 ORDER BY SrNo DESC;",
+      "SELECT TOP 1 * FROM Data WHERE [Aeron universal ID] = 12 ORDER BY SrNo DESC;",
       function (err, result) {
         if (err) console.log(err);
         console.log(result);

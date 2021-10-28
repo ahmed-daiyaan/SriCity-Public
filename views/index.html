@@ -19,7 +19,7 @@
                 <div class="col col-sm-3 col-xs-12">
                   <h5 class="title">SriCity AQMS</h5>
                   <label for="station">Station:</label>
-                  <select name="station" id="station" onchange="changeStation()">
+                  <select name="station" id="station">
                     <option value="s1">Station 1</option>
                     <option value="s2">Station 2</option>
                   </select>
@@ -34,180 +34,133 @@
                 </div>
               </div>
             </div>
-            <div class="panel-body table-responsive">
+            <div class="panel-body table-responsive" id="table">
               <table class="table">
                 <thead>
                   <tr>
                     <th>#</th>
                     <th>Parameter</th>
+                    <th>Range</th>
                     <th>Value</th>
+                    <th>Units</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>battery_level</td>
-                    <td id="battery_level">31</td>
+                    <td>CO</td>
+                    <td>0 to 10</td>
+                    <td id="co">22</td>
+                    <td>mg/m3</td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>co</td>
-                    <td id="co">22</td>
+                    <td>NO2</td>
+                    <td>0 to 80</td>
+                    <td id="no2">26</td>
+                    <td>ppm</td>
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td>no2</td>
-                    <td id="no2">26</td>
+                    <td>O3</td>
+                    <td>22 to 24</td>
+                    <td id="o3">26</td>
+                    <td>ppm</td>
                   </tr>
                   <tr>
                     <td>4</td>
-                    <td>o3</td>
-                    <td id="o3">26</td>
+                    <td>NO</td>
+                    <td>-</td>
+                    <td id="no">20</td>
+                    <td>ppm</td>
                   </tr>
                   <tr>
                     <td>5</td>
-                    <td>no</td>
-                    <td id="no">20</td>
+                    <td>SO2</td>
+                    <td>17 to 74</td>
+                    <td id="so2">20</td>
+                    <td>ppm</td>
                   </tr>
                   <tr>
                     <td>6</td>
-                    <td>so2</td>
-                    <td id="so2">20</td>
+                    <td>PM 1</td>
+                    <td>-</td>
+                    <td id="pm1">20</td>
+                    <td>ug/m3</td>
                   </tr>
                   <tr>
                     <td>7</td>
-                    <td>pm1</td>
-                    <td id="pm1">20</td>
+                    <td>PM 2.5</td>
+                    <td>0 to 60</td>
+                    <td id="pm25">20</td>
+                    <td>ug/m3</td>
                   </tr>
                   <tr>
                     <td>8</td>
-                    <td>pm25</td>
-                    <td id="pm25">20</td>
+                    <td>PM 10</td>
+                    <td>0 to 100</td>
+                    <td id="pm10">20</td>
+                    <td>ug/m3</td>
                   </tr>
+                  
                   <tr>
                     <td>9</td>
-                    <td>pm10</td>
-                    <td id="pm10">20</td>
+                    <td>Noise Average</td>
+                    <td>Max 75</td>
+                    <td id="noise_average">20</td>
+                    <td>db</td>
                   </tr>
                   <tr>
                     <td>10</td>
-                    <td>ambient_temperature</td>
-                    <td id="ambient_temperature">20</td>
+                    <td>UV</td>
+                    <td>-</td>
+                    <td id="uv">20</td>
+                    <td>index</td>
                   </tr>
                   <tr>
                     <td>11</td>
-                    <td>humidity</td>
-                    <td id="humidity">20</td>
+                    <td>CO2</td>
+                    <td>-</td>
+                    <td id="co2">20</td>
+                    <td>ppm</td>
                   </tr>
+                
                   <tr>
                     <td>12</td>
-                    <td>noise_average</td>
-                    <td id="noise_average">20</td>
+                    <td>TAMPERING ALERT</td>
+                    <td>-</td>
+                    <td id="tampering_alert">20</td>
+                    <td>unit</td>
                   </tr>
+                  
                   <tr>
                     <td>13</td>
-                    <td>min_noise_level</td>
-                    <td id="min_noise_level">20</td>
+                    <td>h2s</td>
+                    <td>-</td>
+                    <td id="h2s">20</td>
+                    <td>ppm</td>
                   </tr>
+                  
                   <tr>
                     <td>14</td>
-                    <td>max_noise_level</td>
-                    <td id="max_noise_level">20</td>
+                    <td>WSPD</td>
+                    <td>-</td>
+                    <td id="wspd">20</td>
+                    <td>kmph</td>
                   </tr>
                   <tr>
                     <td>15</td>
-                    <td>visible_light</td>
-                    <td id="visible_light">20</td>
+                    <td>WDIR</td>
+                    <td>-</td>
+                    <td id="wdir">20</td>
+                    <td>deg</td>
                   </tr>
                   <tr>
                     <td>16</td>
-                    <td>uv</td>
-                    <td id="uv">20</td>
-                  </tr>
-                  <tr>
-                    <td>17</td>
-                    <td>co2</td>
-                    <td id="co2">20</td>
-                  </tr>
-                  <tr>
-                    <td>18</td>
-                    <td>pressure</td>
-                    <td id="pressure">20</td>
-                  </tr>
-                  <tr>
-                    <td>19</td>
-                    <td>tampering_alert</td>
-                    <td id="tampering_alert">20</td>
-                  </tr>
-                  <tr>
-                    <td>20</td>
-                    <td>co_aux</td>
-                    <td id="co_aux">20</td>
-                  </tr>
-                  <tr>
-                    <td>21</td>
-                    <td>co_we</td>
-                    <td id="co_we">20</td>
-                  </tr>
-                  <tr>
-                    <td>22</td>
-                    <td>no2_aux</td>
-                    <td id="no2_aux">20</td>
-                  </tr>
-                  <tr>
-                    <td>23</td>
-                    <td>no2_we</td>
-                    <td id="no2_we">20</td>
-                  </tr>
-                  <tr>
-                    <td>24</td>
-                    <td>o3_aux</td>
-                    <td id="o3_aux">20</td>
-                  </tr>
-                  <tr>
-                    <td>25</td>
-                    <td>o3_we</td>
-                    <td id="o3_we">20</td>
-                  </tr>
-                  <tr>
-                    <td>26</td>
-                    <td>so2_aux</td>
-                    <td id="so2_aux">20</td>
-                  </tr>
-                  <tr>
-                    <td>27</td>
-                    <td>so2_we</td>
-                    <td id="so2_we">20</td>
-                  </tr>
-                  <tr>
-                    <td>28</td>
-                    <td>h2s</td>
-                    <td id="h2s">20</td>
-                  </tr>
-                  <tr>
-                    <td>29</td>
-                    <td>h2s_we</td>
-                    <td id="h2s_we">20</td>
-                  </tr>
-                   <tr>
-                    <td>30</td>
-                    <td>h2s_aux</td>
-                    <td id="h2s_aux">20</td>
-                  </tr>
-                  <tr>
-                    <td>31</td>
-                    <td>wspd</td>
-                    <td id="wspd">20</td>
-                  </tr>
-                  <tr>
-                    <td>32</td>
-                    <td>wdir</td>
-                    <td id="wdir">20</td>
-                  </tr>
-                  <tr>
-                    <td>33</td>
-                    <td>air_temperature</td>
-                    <td id="air_temperature">20</td>
+                    <td>Rainfall</td>
+                    <td>-</td>
+                    <td id="rainfall">20</td>
+                    <td>mm</td>
                   </tr>
                 </tbody>
               </table>
@@ -217,12 +170,9 @@
         </div>
       </div>
     </div>
-    <script>
-      
-
-}
-      </script>
+    
     <script src="/js/socket.io.js"></script>
     <script src="/js/sockets.js"></script>
   </body>
 </html>
+
